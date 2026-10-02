@@ -4,13 +4,13 @@ A second, visually distinct demo website concept for **Northview Construction Co
 
 ## Design concept
 
-**Blueprint / architectural drawing aesthetic** — a complete departure from the v1 demo's light industrial look:
+**Dark luxury / editorial** — warm charcoal canvas with champagne-gold accents and a premium serif (Fraunces) paired with a clean sans (Manrope):
 
-- Deep blueprint-navy canvas with a drafting grid
-- Architectural "sheet" numbering (A-01 … A-07) with a sticky drawing-index nav
-- Dimension-line dividers, crosshair markers, spec-table stats
-- Animated SVG floor-plan sketch in the hero
-- Title-block footer, like a real drawing set
+- Cinematic full-screen hero with oversized serif headline
+- Gold hairline dividers, elegant services marquee
+- Numbered services index with hover states, large editorial project gallery
+- Rotating client pull-quotes, stat band, CTA-first contact (call / WhatsApp / email)
+- Giant outlined wordmark footer
 
 ## Structure
 
