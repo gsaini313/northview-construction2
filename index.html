@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northview Construction Co. — Vaughan, ON | Custom Homes & Renovations</title>
+<meta name="description" content="Northview Construction Co., Vaughan ON. Custom home builds, additions, kitchen & bathroom renovations. Drawn to spec, built to last.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bp-950:#060f20; --bp-900:#0a1a35; --bp-800:#0d2242; --bp-700:#122c52;
+  --line:rgba(170,205,255,.16); --line-soft:rgba(170,205,255,.08);
+  --ink:#edf3fd; --mut:#8fa5c9; --dim:#5f7599;
+  --amber:#f5a524; --amber-dk:#c77f0e; --wa:#25d366;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',sans-serif;color:var(--ink);background:var(--bp-900);
+  background-image:
+    linear-gradient(var(--line-soft) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:44px 44px;
+  overflow-x:hidden;
+}
+::selection{background:var(--amber);color:#0a1a35}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:0 5vw}
+section{padding:6.5rem 0;position:relative;border-top:1px solid var(--line)}
+/* sheet tag */
+.sheet{display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem}
+.sheet .no{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.14em;
+  border:1px solid var(--amber);color:var(--amber);padding:.35rem .7rem}
+.sheet .ti{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;color:var(--mut);text-transform:uppercase}
+h2.st{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:700;line-height:1.04;letter-spacing:-.01em;max-width:20ch}
+h2.st .u{color:var(--amber)}
+.lede{margin-top:1.1rem;max-width:62ch;color:var(--mut);font-size:1.02rem;line-height:1.7}
+/* dimension divider */
+.dim{display:flex;align-items:center;gap:1rem;margin:3.2rem 0 0}
+.dim i{display:block;flex:1;height:1px;background:var(--line);position:relative}
+.dim i::before,.dim i::after{content:'';position:absolute;top:-5px;width:1px;height:11px;background:var(--mut)}
+.dim i::before{left:0}.dim i::after{right:0}
+.dim em{font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:.7rem;letter-spacing:.18em;color:var(--dim)}
+/* crosshair */
+.x{position:absolute;font-family:'IBM Plex Mono',monospace;color:var(--dim);font-size:.9rem;user-select:none}
+/* nav */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(6,15,32,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:.85rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--ink)}
+.brand .mk{width:38px;height:38px;border:1.5px solid var(--amber);display:grid;place-items:center;
+  font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.8rem;color:var(--amber)}
+.brand .bt{line-height:1.25}
+.brand .bt b{display:block;font-size:.92rem;letter-spacing:.02em}
+.brand .bt span{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.24em;color:var(--mut)}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;color:var(--mut);text-decoration:none;text-transform:uppercase}
+.nav-links a:hover{color:var(--amber)}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--amber);color:#0a1a35!important;padding:.7rem 1.2rem;font-weight:600}
+.nav-cta:hover{background:#fff!important}
+#navToggle{display:none;background:none;border:1px solid var(--line);color:var(--ink);padding:.5rem .7rem;cursor:pointer;font-size:1rem}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.78rem;
+  letter-spacing:.14em;text-transform:uppercase;padding:1rem 1.8rem;text-decoration:none;transition:all .2s ease;cursor:pointer;border:1px solid transparent}
+.btn-solid{background:var(--amber);color:#0a1a35}
+.btn-solid:hover{background:#fff;transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;border-top:none;padding:8.5rem 0 4rem;position:relative;overflow:hidden}
+.hero-photo{position:absolute;inset:0;background:url('images/blueprints.jpg') center/cover no-repeat;opacity:.22}
+.hero-tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,15,32,.55),rgba(6,15,32,.88))}
+.hero-in{position:relative;z-index:1;width:100%}
+.hero-kicker{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.26em;color:var(--amber);text-transform:uppercase;
+  display:flex;align-items:center;gap:.8rem;margin-bottom:1.6rem}
+.hero-kicker::before{content:'';width:34px;height:1px;background:var(--amber)}
+.hero h1{font-size:clamp(3rem,9vw,7.2rem);font-weight:700;line-height:.98;letter-spacing:-.015em;text-transform:uppercase}
+.hero h1 .out{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.hero-sub{margin-top:1.6rem;max-width:52ch;color:var(--mut);font-size:1.06rem;line-height:1.7}
+.hero-sub b{color:var(--ink)}
+.hero-meta{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:2.2rem}
+.hero-meta div{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+.hero-meta div b{display:block;color:var(--ink);font-size:.85rem;margin-top:.35rem;letter-spacing:.1em}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.6rem}
+.hero-plan{margin-top:3.4rem;max-width:560px;border:1px solid var(--line);background:rgba(10,26,53,.6);padding:1.4rem}
+.hero-plan .cap{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.22em;color:var(--dim);text-transform:uppercase;margin-bottom:.8rem;display:flex;justify-content:space-between}
+.hero-plan svg{width:100%;height:auto;display:block}
+.hero-plan line,.hero-plan rect,.hero-plan path,.hero-plan circle{stroke:var(--ink);stroke-width:1.5;fill:none;opacity:.9}
+.hero-plan text{fill:var(--mut);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em}
+.draw{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 3.2s ease forwards}
+.draw.d2{animation-delay:.5s}.draw.d3{animation-delay:1s}.draw.d4{animation-delay:1.4s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.scroll-cue{position:absolute;left:5vw;bottom:2rem;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:.66rem;
+  letter-spacing:.3em;color:var(--dim);text-transform:uppercase;display:flex;align-items:center;gap:.8rem}
+.scroll-cue::after{content:'';width:1px;height:44px;background:linear-gradient(var(--amber),transparent);animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+/* drawing index strip */
+.index{background:var(--bp-950);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.1rem 0;position:sticky;top:60px;z-index:40}
+.index-in{display:flex;gap:2rem;overflow-x:auto;scrollbar-width:none}
+.index-in::-webkit-scrollbar{display:none}
+.index-in a{white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;color:var(--mut);text-decoration:none;text-transform:uppercase}
+.index-in a b{color:var(--amber);margin-right:.5rem}
+.index-in a:hover{color:var(--ink)}
+/* about */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;margin-top:2.8rem;align-items:start}
+.about-copy p{color:var(--mut);line-height:1.75;margin-bottom:1.2rem}
+.about-copy p b{color:var(--ink)}
+.spec{border:1px solid var(--line);background:rgba(13,34,66,.55)}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.15rem 1.4rem;border-bottom:1px dashed var(--line)}
+.spec-row:last-child{border-bottom:none}
+.spec-row .k{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+.spec-row .v{font-size:1.7rem;font-weight:700;color:var(--ink)}
+.spec-row .v small{font-size:.85rem;color:var(--mut);font-weight:400}
+/* services */
+.svc{margin-top:2.8rem;border-top:1px solid var(--line)}
+.svc-row{display:grid;grid-template-columns:90px 1fr auto;gap:1.6rem;align-items:center;padding:1.5rem .4rem;border-bottom:1px solid var(--line);transition:background .2s}
+.svc-row:hover{background:rgba(170,205,255,.04)}
+.svc-no{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--amber);letter-spacing:.1em;border:1px solid var(--line);padding:.5rem 0;text-align:center}
+.svc-row h3{font-size:1.25rem;font-weight:600}
+.svc-row p{color:var(--mut);font-size:.94rem;margin-top:.35rem;max-width:60ch;line-height:1.6}
+.svc-tag{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;white-space:nowrap}
+/* projects */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:2.8rem}
+.proj{border:1px solid var(--line);background:var(--bp-950);position:relative;overflow:hidden}
+.proj .ph{aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--bp-800)}
+.proj .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05);transition:transform .5s ease}
+.proj:hover .ph img{transform:scale(1.045)}
+.proj .det{position:absolute;top:.9rem;left:.9rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.16em;
+  background:rgba(6,15,32,.85);border:1px solid var(--line);color:var(--amber);padding:.4rem .7rem}
+.proj .pb{padding:1.4rem 1.5rem 1.6rem}
+.proj .pb h3{font-size:1.2rem;font-weight:600}
+.proj .pb .meta{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-top:.5rem}
+.proj .pb p{color:var(--mut);font-size:.93rem;line-height:1.65;margin-top:.7rem}
+/* process */
+.phase{display:grid;grid-template-columns:120px 1fr;gap:2rem;margin-top:2.6rem;position:relative}
+.phase::before{content:'';position:absolute;left:59px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.ph-dot{width:26px;height:26px;border:1.5px solid var(--amber);border-radius:50%;background:var(--bp-900);margin:0 auto;position:relative;z-index:1;
+  display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--amber)}
+.ph-body{padding-bottom:2.4rem}
+.ph-body .pn{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.22em;color:var(--amber);text-transform:uppercase}
+.ph-body h3{font-size:1.35rem;margin:.5rem 0 .6rem}
+.ph-body p{color:var(--mut);line-height:1.7;max-width:64ch}
+/* reports */
+.rep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.8rem}
+.rep{border:1px solid var(--line);background:rgba(13,34,66,.5);padding:1.7rem;display:flex;flex-direction:column;gap:1rem}
+.rep .rn{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.rep .stars{color:var(--amber);letter-spacing:.2em;font-size:.85rem}
+.rep p{color:var(--ink);line-height:1.7;font-size:.96rem;flex:1}
+.rep .who{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--dim);letter-spacing:.1em}
+.rep .who b{color:var(--mut)}
+/* area */
+.pills{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem}
+.pill{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid var(--line);color:var(--mut);padding:.7rem 1.2rem;transition:all .2s}
+.pill:hover{border-color:var(--amber);color:var(--amber)}
+/* contact */
+.contact{background:var(--bp-950)}
+.c-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;margin-top:2.8rem;align-items:start}
+.callout{display:flex;align-items:center;gap:1.3rem;border:1px solid var(--line);background:var(--bp-900);
+  padding:1.5rem 1.6rem;text-decoration:none;color:var(--ink);margin-bottom:1.1rem;transition:all .2s ease;position:relative}
+.callout:hover{transform:translateX(6px);border-color:var(--amber)}
+.callout .ci{flex:none;width:58px;height:58px;display:grid;place-items:center;background:var(--amber);color:#0a1a35;font-size:1.6rem}
+.callout.wa .ci{background:var(--wa);color:#062b16}
+.callout .ct b{display:block;font-size:1.25rem;font-weight:700;letter-spacing:.01em}
+.callout .ct span{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--mut);letter-spacing:.06em}
+.callout .tag{position:absolute;top:-9px;left:1.2rem;background:var(--bp-950);padding:0 .5rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.22em;color:var(--amber)}
+.c-info{border:1px solid var(--line);background:rgba(13,34,66,.5);padding:1.8rem}
+.c-row{display:flex;gap:1rem;padding:.9rem 0;border-bottom:1px dashed var(--line);align-items:flex-start}
+.c-row:last-child{border:none}
+.c-row .k{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;min-width:86px;padding-top:.2rem}
+.c-row .v{color:var(--ink);font-size:.96rem;line-height:1.6}
+.c-row .v a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--amber)}
+.c-row .v a:hover{color:var(--amber)}
+/* footer title block */
+footer{border-top:2px solid var(--amber);background:var(--bp-950)}
+.tblock{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin:3.5rem 0 2rem}
+.tblock div{padding:1.1rem 1.3rem;border-right:1px solid var(--line)}
+.tblock div:last-child{border-right:none}
+.tblock .k{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.22em;color:var(--dim);text-transform:uppercase;margin-bottom:.4rem}
+.tblock .v{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--ink);letter-spacing:.04em}
+.foot-base{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:0 0 2.4rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--dim)}
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  .about-grid,.c-grid{grid-template-columns:1fr}
+  .rep-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .tblock{grid-template-columns:1fr 1fr}
+  .tblock div:nth-child(2){border-right:none}
+  .tblock div{border-bottom:1px solid var(--line)}
+}
+@media(max-width:760px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bp-950);flex-direction:column;
+    padding:1.2rem 5vw 1.6rem;align-items:flex-start;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  #navToggle{display:block}
+  .index{top:57px}
+  .svc-row{grid-template-columns:64px 1fr}
+  .svc-tag{display:none}
+  .phase{grid-template-columns:44px 1fr;gap:1.2rem}
+  .phase::before{left:21px}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <span class="mk">NV</span>
+      <span class="bt"><b>Northview Construction Co.</b><span>VAUGHAN · ONTARIO</span></span>
+    </a>
+    <button id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="mainNav">
+      <a href="#profile">Profile</a>
+      <a href="#scope">Scope</a>
+      <a href="#work">Work</a>
+      <a href="#phases">Phases</a>
+      <a href="#reports">Reports</a>
+      <a href="#contact" class="nav-cta">Start a Project</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="hero-photo" role="img" aria-label="Architectural blueprints"></div>
+  <div class="hero-tint"></div>
+  <span class="x" style="top:96px;left:4vw">+</span>
+  <span class="x" style="top:96px;right:4vw">+</span>
+  <div class="wrap hero-in">
+    <p class="hero-kicker">Drawing set · Residential &amp; light commercial</p>
+    <h1>Drawn to spec.<br><span class="out">Built to last.</span></h1>
+    <p class="hero-sub">Northview Construction Co. is Vaughan's <b>design-build contractor</b> for custom homes, additions and full-home renovations. Every project starts on paper — measured, priced and scheduled — before a single wall comes down.</p>
+    <div class="hero-meta">
+      <div>Est.<b>2011 · Vaughan ON</b></div>
+      <div>Status<b>Licensed &amp; Insured</b></div>
+      <div>Focus<b>Design-Build</b></div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="tel:+16477055245">✆&nbsp; Call (647) 705-5245</a>
+      <a class="btn btn-ghost" href="https://wa.me/16477055245?text=Hi%20Northview%20Construction!%20I%27d%20like%20a%20free%20quote%20for%20my%20project." target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+    <div class="hero-plan">
+      <div class="cap"><span>Fig. 01 — Typical plan, not to scale</span><span>Scale: NTS</span></div>
+      <svg viewBox="0 0 400 250" role="img" aria-label="Stylized floor plan">
+        <rect class="draw" x="20" y="20" width="360" height="210"/>
+        <line class="draw d2" x1="20" y1="130" x2="190" y2="130"/>
+        <line class="draw d2" x1="190" y1="20" x2="190" y2="130"/>
+        <line class="draw d3" x1="190" y1="130" x2="380" y2="130"/>
+        <line class="draw d3" x1="285" y1="130" x2="285" y2="230"/>
+        <path class="draw d4" d="M190 130 A 40 40 0 0 1 230 170"/>
+        <path class="draw d4" d="M285 190 A 34 34 0 0 0 251 156"/>
+        <circle class="draw d4" cx="200" cy="230" r="2.5"/>
+        <text x="34" y="70">LIVING</text>
+        <text x="204" y="70">KITCHEN</text>
+        <text x="34" y="170">PRIMARY</text>
+        <text x="300" y="170">BATH</text>
+        <text x="204" y="215">HALL</text>
+      </svg>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</div>
+
+<nav class="index" aria-label="Drawing index">
+  <div class="wrap index-in">
+    <a href="#profile"><b>A-01</b>Profile</a>
+    <a href="#scope"><b>A-02</b>Scope of Work</a>
+    <a href="#work"><b>A-03</b>Selected Work</a>
+    <a href="#phases"><b>A-04</b>Phases</a>
+    <a href="#reports"><b>A-05</b>Field Reports</a>
+    <a href="#area"><b>A-06</b>Service Area</a>
+    <a href="#contact"><b>A-07</b>Contact</a>
+  </div>
+</nav>
+
+<section id="profile">
+  <span class="x" style="top:1.4rem;right:4vw">+</span>
+  <div class="wrap">
+    <div class="sheet reveal"><span class="no">SHEET A-01</span><span class="ti">Firm profile</span></div>
+    <h2 class="st reveal">One contractor, <span class="u">accountable</span> for the whole job.</h2>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>Most renovations go sideways in the gaps — between the designer and the framer, the plumber and the tiler. Northview works <b>design-build</b>: one team owns your project from first sketch to final walkthrough, so nothing gets lost between trades.</p>
+        <p>We're a Vaughan-based crew of carpenters, project managers and finishers. <b>No hand-offs, no finger-pointing</b> — just a priced scope, a real schedule, and a site kept clean enough that your neighbours won't hate you.</p>
+        <p>Every estimate is itemized line by line. If a number moves, you'll know why before it does.</p>
+      </div>
+      <div class="spec reveal">
+        <div class="spec-row"><span class="k">Combined experience</span><span class="v">15<small> yrs</small></span></div>
+        <div class="spec-row"><span class="k">Projects completed</span><span class="v">120<small>+</small></span></div>
+        <div class="spec-row"><span class="k">Licensed &amp; insured</span><span class="v">100<small>%</small></span></div>
+        <div class="spec-row"><span class="k">Warranty</span><span class="v">2<small> yrs</small></span></div>
+      </div>
+    </div>
+    <div class="dim"><i></i><em>Fig. 02 — Firm at a glance</em><i></i></div>
+  </div>
+</section>
+
+<section id="scope" style="background:rgba(6,15,32,.55)">
+  <div class="wrap">
+    <div class="sheet reveal"><span class="no">SHEET A-02</span><span class="ti">Scope of work</span></div>
+    <h2 class="st reveal">What we <span class="u">put on paper.</span></h2>
+    <p class="lede reveal">Eight core scopes. If it's not listed, ask anyway — if we can't do it well, we'll tell you who can.</p>
+    <div class="svc">
+      <div class="svc-row reveal"><span class="svc-no">01</span><div><h3>Custom Home Builds</h3><p>Full design-build of new single-family homes — permits, structure, envelope and finishes under one contract.</p></div><span class="svc-tag">Ground-up</span></div>
+      <div class="svc-row reveal"><span class="svc-no">02</span><div><h3>Home Additions</h3><p>Second storeys, rear extensions and in-law suites, tied into your existing structure without the patchwork look.</p></div><span class="svc-tag">Structural</span></div>
+      <div class="svc-row reveal"><span class="svc-no">03</span><div><h3>Kitchen Renovations</h3><p>Layout reconfiguration, custom cabinetry, stone, lighting and the unglamorous plumbing it all depends on.</p></div><span class="svc-tag">Interior</span></div>
+      <div class="svc-row reveal"><span class="svc-no">04</span><div><h3>Bathroom Renovations</h3><p>Curbless showers, heated floors, proper waterproofing — the details that decide whether it lasts 5 years or 25.</p></div><span class="svc-tag">Interior</span></div>
+      <div class="svc-row reveal"><span class="svc-no">05</span><div><h3>Basement Finishing</h3><p>From bare concrete to legal second units: framing, insulation, egress and all the permits in between.</p></div><span class="svc-tag">Interior</span></div>
+      <div class="svc-row reveal"><span class="svc-no">06</span><div><h3>Roofing &amp; Exteriors</h3><p>Roof replacement, siding, windows and masonry repair — the envelope that keeps everything else dry.</p></div><span class="svc-tag">Exterior</span></div>
+      <div class="svc-row reveal"><span class="svc-no">07</span><div><h3>Decks &amp; Outdoor Living</h3><p>Composite and cedar decks, pergolas and outdoor kitchens built for Ontario winters, not just July.</p></div><span class="svc-tag">Exterior</span></div>
+      <div class="svc-row reveal"><span class="svc-no">08</span><div><h3>Commercial Build-Outs</h3><p>Office, retail and restaurant interiors delivered on tight timelines with minimal disruption to your business.</p></div><span class="svc-tag">Commercial</span></div>
+    </div>
+    <div class="dim"><i></i><em>End of scope — 8 items</em><i></i></div>
+  </div>
+</section>
+<section id="work">
+  <div class="wrap">
+    <div class="sheet reveal"><span class="no">SHEET A-03</span><span class="ti">Selected work</span></div>
+    <h2 class="st reveal">Recent <span class="u">details.</span></h2>
+    <p class="lede reveal">A few finished jobs across the GTA. Every photo below is our own work — ask us for the address and we'll drive you past it.</p>
+    <div class="proj-grid">
+      <article class="proj reveal">
+        <div class="ph"><span class="det">Detail 1 / A-301</span><img src="images/kitchen.jpg" alt="Renovated kitchen with custom cabinetry" loading="lazy"></div>
+        <div class="pb"><h3>Maple Kitchen Rebuild</h3><div class="meta">Vaughan · 6 weeks · 2026</div><p>Wall removed, island added, full rewire. The "before" had four different floor heights — the "after" has one.</p></div>
+      </article>
+      <article class="proj reveal">
+        <div class="ph"><span class="det">Detail 2 / A-302</span><img src="images/bathroom.jpg" alt="Modern renovated bathroom" loading="lazy"></div>
+        <div class="pb"><h3>Curbless Bath, Kleinburg</h3><div class="meta">Kleinburg · 4 weeks · 2025</div><p>Barrier-free shower, heated floor, wall-hung vanity. Waterproofed like a swimming pool, finished like a spa.</p></div>
+      </article>
+      <article class="proj reveal">
+        <div class="ph"><span class="det">Detail 3 / A-303</span><img src="images/basement.jpg" alt="Finished basement living space" loading="lazy"></div>
+        <div class="pb"><h3>Legal Second Unit</h3><div class="meta">Woodbridge · 10 weeks · 2025</div><p>Full basement apartment with egress windows, separate entrance and sound-isolated ceiling. Passed inspection first try.</p></div>
+      </article>
+      <article class="proj reveal">
+        <div class="ph"><span class="det">Detail 4 / A-304</span><img src="images/exterior.jpg" alt="Home exterior after renovation" loading="lazy"></div>
+        <div class="pb"><h3>Exterior Overhaul</h3><div class="meta">Richmond Hill · 5 weeks · 2024</div><p>New roof, siding, windows and stone veneer. The neighbours started asking for our card before we finished.</p></div>
+      </article>
+    </div>
+    <div class="dim"><i></i><em>4 of 120+ completed — full set on request</em><i></i></div>
+  </div>
+</section>
+
+<section id="phases" style="background:rgba(6,15,32,.55)">
+  <div class="wrap">
+    <div class="sheet reveal"><span class="no">SHEET A-04</span><span class="ti">Project phases</span></div>
+    <h2 class="st reveal">From first call to <span class="u">final walkthrough.</span></h2>
+    <div class="phase">
+      <div><div class="ph-dot">01</div></div>
+      <div class="ph-body reveal"><div class="pn">Phase 01 — Measure</div><h3>Site visit &amp; survey</h3><p>We walk the property, take measurements, photos and notes, and talk through what you actually want — not what a brochure says you should want. Free, about an hour.</p></div>
+    </div>
+    <div class="phase">
+      <div><div class="ph-dot">02</div></div>
+      <div class="ph-body reveal"><div class="pn">Phase 02 — Draft</div><h3>Itemized proposal</h3><p>Within a week you get a line-by-line quote: labour, materials, allowances, timeline. No lump-sum mysteries, no "allowance" traps.</p></div>
+    </div>
+    <div class="phase">
+      <div><div class="ph-dot">03</div></div>
+      <div class="ph-body reveal"><div class="pn">Phase 03 — Build</div><h3>Construction, managed</h3><p>Permits pulled, site protected, schedule posted. You get a single point of contact and photo updates without having to ask.</p></div>
+    </div>
+    <div class="phase">
+      <div><div class="ph-dot">04</div></div>
+      <div class="ph-body reveal"><div class="pn">Phase 04 — Sign-off</div><h3>Walkthrough &amp; warranty</h3><p>We punch-list every room together before final payment. Then a 2-year workmanship warranty in writing — because that's how long we expect it to take before you even think about calling us back.</p></div>
+    </div>
+    <div class="dim"><i></i><em>Typical kitchen: 5–7 weeks · Full basement: 8–12 weeks</em><i></i></div>
+  </div>
+</section>
+
+<section id="reports">
+  <div class="wrap">
+    <div class="sheet reveal"><span class="no">SHEET A-05</span><span class="ti">Field reports</span></div>
+    <h2 class="st reveal">Signed off by <span class="u">homeowners.</span></h2>
+    <div class="rep-grid">
+      <div class="rep reveal"><div class="rn">Report #0147</div><div class="stars">★★★★★</div><p>"They showed up when they said they would, every single day. The quote didn't move a dollar from start to finish — I've never seen that with a contractor."</p><div class="who"><b>Daniel R.</b> · Kitchen reno, Vaughan</div></div>
+      <div class="rep reveal"><div class="rn">Report #0139</div><div class="stars">★★★★★</div><p>"Our basement sat half-finished by another company for a year. Northview took it over, fixed the mess, and had us moved in within two months."</p><div class="who"><b>Priya S.</b> · Basement unit, Woodbridge</div></div>
+      <div class="rep reveal"><div class="rn">Report #0131</div><div class="stars">★★★★★</div><p>"Clean site, clear schedule, straight answers. When the tile we picked was backordered they had three alternatives priced out the same day."</p><div class="who"><b>Marco &amp; Elena T.</b> · Bathroom + addition, Richmond Hill</div></div>
+    </div>
+    <div class="dim"><i></i><em>References available — ask for any project above</em><i></i></div>
+  </div>
+</section>
+
+<section id="area" style="background:rgba(6,15,32,.55)">
+  <div class="wrap">
+    <div class="sheet reveal"><span class="no">SHEET A-06</span><span class="ti">Service area</span></div>
+    <h2 class="st reveal">Where we <span class="u">roll the truck.</span></h2>
+    <p class="lede reveal">Based in Vaughan, working across the GTA. Outside these zones? Call anyway — for the right project we'll travel.</p>
+    <div class="pills reveal">
+      <span class="pill">Vaughan</span><span class="pill">Woodbridge</span><span class="pill">Kleinburg</span><span class="pill">Maple</span><span class="pill">Richmond Hill</span><span class="pill">Markham</span><span class="pill">Mississauga</span><span class="pill">Brampton</span><span class="pill">Etobicoke</span><span class="pill">North York</span><span class="pill">Toronto</span><span class="pill">Oakville</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <span class="x" style="top:1.4rem;left:4vw">+</span>
+  <div class="wrap">
+    <div class="sheet reveal"><span class="no">SHEET A-07</span><span class="ti">Contact — last sheet</span></div>
+    <h2 class="st reveal">Start with a <span class="u">conversation.</span></h2>
+    <p class="lede reveal">No forms, no waiting on email. Call or message — you'll talk to someone who can actually price your job.</p>
+    <div class="c-grid">
+      <div class="reveal">
+        <a class="callout" href="tel:+16477055245"><span class="tag">TEL-01</span><span class="ci">✆</span><span class="ct"><b>Call Now</b><span>+1 (647) 705-5245 · Mon–Fri 8–5</span></span></a>
+        <a class="callout wa" href="https://wa.me/16477055245?text=Hi%20Northview%20Construction!%20I%27d%20like%20a%20free%20quote%20for%20my%20project." target="_blank" rel="noopener"><span class="tag">MSG-02</span><span class="ci"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-6 5V4a1 1 0 0 1 1-1zm3 5v2h10V8H7zm0 4v2h7v-2H7z"/></svg></span><span class="ct"><b>WhatsApp Us</b><span>Message anytime — replies within the hour</span></span></a>
+        <a class="callout" href="mailto:info@northviewconstruction.ca"><span class="tag">EML-03</span><span class="ci">✉</span><span class="ct"><b>Email Us</b><span>info@northviewconstruction.ca</span></span></a>
+      </div>
+      <div class="c-info reveal">
+        <div class="c-row"><span class="k">Office</span><span class="v">4 Claudia Ave<br>Vaughan, ON, Canada</span></div>
+        <div class="c-row"><span class="k">Hours</span><span class="v">Mon–Fri: 8:00 AM – 5:00 PM<br>Sat: By appointment · Sun: Closed</span></div>
+        <div class="c-row"><span class="k">Social</span><span class="v"><a href="https://www.instagram.com/northviewconstco" target="_blank" rel="noopener">@northviewconstco</a> on Instagram</span></div>
+        <div class="c-row"><span class="k">Note</span><span class="v">Estimates are free and itemized. If we're not the right fit, we'll say so.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="tblock reveal">
+      <div><div class="k">Project</div><div class="v">NORTHVIEW CONSTRUCTION CO.</div></div>
+      <div><div class="k">Title</div><div class="v">COMPANY WEBSITE — DEMO</div></div>
+      <div><div class="k">Drawn</div><div class="v">G1 · OCT 2026</div></div>
+      <div><div class="k">Scale · Sheet</div><div class="v">NTS · A-07 / A-07</div></div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 NORTHVIEW CONSTRUCTION CO. — DEMO WEBSITE, CONTENT IS ILLUSTRATIVE</span>
+      <span>4 CLAUDIA AVE, VAUGHAN ON · (647) 705-5245</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle=document.getElementById('navToggle'),nav=document.getElementById('mainNav');
+  toggle.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',open);
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open')})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
