@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Northview Construction Co. — Vaughan, ON | Custom Homes & Renovations</title>
 <meta name="description" content="Northview Construction Co., Vaughan ON. Custom home builds, additions, kitchen & bathroom renovations. Built like it'll outlive us.">
+<link rel="icon" href="images/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --noir:#14110a; --coal:#1d1811; --coal-2:#242016;
+  --noir:#12100b; --coal:#1b1712; --coal-2:#221d15;
   --cream:#f4eee1; --cream-2:#eae2cf;
-  --gold:#c9a24f; --gold-hi:#e8cd8f; --gold-dk:#9a7a33;
+  --gold:#bd9350; --gold-hi:#e3c384; --gold-dk:#8f6c35;
   --ink-d:#ece4d0; --body-d:#b3a88f; --dim-d:#7d735c;
   --ink-l:#1d1811; --body-l:#57503f; --dim-l:#8a8069;
   --hair-d:rgba(201,162,79,.28); --hair-l:rgba(29,24,17,.16);
@@ -40,9 +41,11 @@ h2.title em{font-style:italic;color:var(--gold);font-weight:300}
 header.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
 header.nav.scrolled{background:rgba(20,17,10,.88);backdrop-filter:blur(12px);border-bottom-color:var(--hair-d)}
 .nav-in{max-width:1220px;margin:0 auto;padding:1.05rem 5vw;display:flex;align-items:center;justify-content:space-between}
-.wordmark{text-decoration:none;color:var(--ink-d);line-height:1.15}
+.wordmark{text-decoration:none;color:var(--ink-d);line-height:1.15;display:inline-block}
+.wordmark img{height:50px;width:auto;display:block}
 .wordmark b{font-family:'Fraunces',serif;font-weight:500;font-size:1.25rem;letter-spacing:.01em;display:block}
 .wordmark span{font-size:.58rem;font-weight:800;letter-spacing:.42em;color:var(--gold)}
+.foot-logo{max-width:300px;width:100%;height:auto;display:block}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--body-d);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--gold-hi)}
@@ -158,8 +161,6 @@ header.nav.scrolled{background:rgba(20,17,10,.88);backdrop-filter:blur(12px);bor
   border:1px solid var(--hair-d);padding:.65rem 1.15rem}
 /* footer */
 footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
-.foot-word{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(3rem,11vw,10rem);line-height:1;letter-spacing:.02em;
-  color:transparent;-webkit-text-stroke:1px rgba(201,162,79,.4);text-align:center;user-select:none;white-space:nowrap}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--hair-d)}
 .foot-grid p{color:var(--body-d);font-size:.92rem;line-height:1.7;margin-top:1rem;max-width:36ch}
 .foot-grid h4{font-size:.68rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
@@ -195,7 +196,7 @@ footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
 <body>
 <header class="nav" id="siteNav">
   <div class="nav-in">
-    <a class="wordmark" href="#top"><b>Northview</b><span>Construction Co.</span></a>
+    <a class="wordmark" href="#top" aria-label="Northview Construction Co. — home"><img src="images/logo.jpg" alt="Northview Construction Co. logo"></a>
     <button id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="nav-links" id="mainNav">
       <a href="#about">About</a>
@@ -356,10 +357,9 @@ footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
 
 <footer>
   <div class="wrap">
-    <div class="foot-word" aria-hidden="true">NORTHVIEW</div>
     <div class="foot-grid">
       <div>
-        <a class="wordmark" href="#top"><b>Northview</b><span>Construction Co.</span></a>
+        <img class="foot-logo" src="images/logo.jpg" alt="Northview Construction Co. logo">
         <p>Vaughan's design-build contractor for custom homes, additions and renovations. Drawn to spec, built to last.</p>
       </div>
       <div>
