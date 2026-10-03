@@ -31,8 +31,8 @@ Contact is CTA-first: `tel:` call button, `wa.me` WhatsApp deep link with pre-fi
 
 ## Business details
 
-Real: name, address (4 Claudia Ave, Vaughan ON), phone (+1 647-705-5245), Instagram (@northviewconstco).
-Demo filler: email, hours, stats, services copy, testimonials, project details.
+Real: name, address (4 Claudia Ave, Vaughan ON), phone (+1 647-705-5245), email (Northviewconstructionco@gmail.com), Instagram (@northviewconstco), company logo.
+Demo filler: hours, stats, services copy, testimonials, project details.
 
 ## Deploy
 
