@@ -71,6 +71,33 @@ header.nav.scrolled{background:rgba(20,17,10,.88);backdrop-filter:blur(12px);bor
 .hero p.sub{margin-top:1.8rem;max-width:50ch;color:var(--body-d);font-size:1.06rem;line-height:1.75}
 .hero p.sub b{color:var(--ink-d)}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.6rem}
+/* FabMenu — expanding hero buttons */
+.fabwrap{position:relative;display:inline-block}
+.fabmain .caret{margin-left:.55rem;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.fabwrap.open .fabmain .caret{transform:rotate(180deg)}
+.fabmenu{position:absolute;top:calc(100% + .7rem);left:0;z-index:60;min-width:100%;display:flex;flex-direction:column;gap:.55rem;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .38s cubic-bezier(.22,1,.36,1),transform .38s cubic-bezier(.22,1,.36,1),visibility .38s}
+.fabwrap.open .fabmenu{opacity:1;visibility:visible;transform:translateY(0)}
+.fabwrap:last-child .fabmenu{left:auto;right:0}
+.fabmenu a{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.2rem;background:rgba(18,16,11,.96);border:1px solid var(--gold);color:var(--ink-d);text-decoration:none;white-space:nowrap;box-shadow:0 22px 55px rgba(0,0,0,.55);backdrop-filter:blur(6px);transform:translateY(-6px);opacity:0;transition:transform .38s cubic-bezier(.22,1,.36,1),opacity .38s,background .25s,color .25s}
+.fabwrap.open .fabmenu a{transform:translateY(0);opacity:1}
+.fabwrap.open .fabmenu a:nth-child(2){transition-delay:.07s}
+.fabmenu a svg{flex-shrink:0;color:var(--gold);transition:color .25s}
+.fabmenu a span{font-size:.98rem;letter-spacing:.02em}
+.fabmenu a small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-hi);margin-top:.15rem}
+.fabmenu a:hover{background:var(--gold);border-color:var(--gold)}
+.fabmenu a:hover,.fabmenu a:hover svg,.fabmenu a:hover small{color:var(--noir)}
+/* Fencing carousel */
+.fcarousel{grid-column:1/-1}
+.fcarousel .fslides{position:absolute;inset:0}
+.fcarousel .fslide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.fcarousel .fslide.is-active{opacity:1}
+.fcarousel .fnav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:46px;height:46px;border-radius:50%;border:1px solid rgba(201,162,79,.65);background:rgba(18,16,11,.55);color:var(--gold-hi);cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(4px);transition:background .25s,color .25s,border-color .25s}
+.fcarousel .fnav:hover{background:var(--gold);color:var(--noir);border-color:var(--gold)}
+.fcarousel .fprev{left:1.1rem}
+.fcarousel .fnext{right:1.1rem}
+.fcarousel .fdots{position:absolute;left:0;right:0;bottom:5rem;z-index:4;display:flex;gap:.55rem;justify-content:center}
+.fcarousel .fdot{width:30px;height:3px;padding:0;border:0;cursor:pointer;background:rgba(255,255,255,.35);transition:background .3s}
+.fcarousel .fdot.is-active{background:var(--gold)}
 .hero-foot{display:flex;gap:2.6rem;flex-wrap:wrap;margin-top:3.4rem;padding-top:1.8rem;border-top:1px solid var(--hair-d)}
 .hero-foot div{font-size:.66rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--dim-d)}
 .hero-foot div b{display:block;color:var(--ink-d);font-size:.8rem;margin-top:.4rem;letter-spacing:.14em}
@@ -222,8 +249,20 @@ footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
     <h1>Homes built like they'll <em>outlive us.</em></h1>
     <p class="sub">Northview Construction Co. is Vaughan's <b>design-build contractor</b> for custom homes, additions and full-home renovations — one team from first sketch to final walkthrough, on schedule and on budget.</p>
     <div class="hero-btns">
-      <a class="btn btn-gold" href="tel:+16477055245"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true" style="vertical-align:-3px;margin-right:.45rem"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>(647) 705-5245</a>
-      <a class="btn btn-ghost" href="https://wa.me/16477055245?text=Hi%20Northview%20Construction!%20I%27d%20like%20a%20free%20quote%20for%20my%20project." target="_blank" rel="noopener">WhatsApp Us</a>
+      <div class="fabwrap">
+        <button type="button" class="btn btn-gold fabmain" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true" style="vertical-align:-3px;margin-right:.45rem"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>(647) 705-5245</span><svg class="caret" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="fabmenu" role="menu" aria-label="Call us">
+          <a role="menuitem" href="tel:+16477055245"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true" style="vertical-align:-3px;margin-right:.45rem"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>+1 (647) 705-5245<small>Harjot</small></span></a>
+          <a role="menuitem" href="tel:+14168805070"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true" style="vertical-align:-3px;margin-right:.45rem"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>+1 (416) 880-5070<small>Partner</small></span></a>
+        </div>
+      </div>
+      <div class="fabwrap">
+        <button type="button" class="btn btn-ghost fabmain" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp Us</span><svg class="caret" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="fabmenu" role="menu" aria-label="WhatsApp us">
+          <a role="menuitem" href="https://wa.me/16477055245?text=Hi%20Northview%20Construction!%20I%27d%20like%20a%20free%20quote%20for%20my%20project." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>+1 (647) 705-5245<small>Harjot</small></span></a>
+          <a role="menuitem" href="https://wa.me/14168805070?text=Hi%20Northview%20Construction!%20I%27d%20like%20a%20free%20quote%20for%20my%20project." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>+1 (416) 880-5070<small>Partner</small></span></a>
+        </div>
+      </div>
     </div>
     <div class="hero-foot">
       <div>Licensed<b>Fully insured</b></div>
@@ -299,10 +338,20 @@ footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
     <div class="proj-wide">
       <figure class="proj reveal"><img src="images/exterior.jpg" alt="Home exterior after renovation" loading="lazy"><figcaption><span>Richmond Hill · 2024</span><b>Full Exterior Overhaul</b></figcaption></figure>
       <figure class="proj reveal"><img src="images/hero.jpg" alt="Framing work on a custom home" loading="lazy"><figcaption><span>Vaughan · 2024</span><b>Custom Build — Framing Stage</b></figcaption></figure>
-      <figure class="proj reveal"><img src="images/fence-1.jpg" alt="Stained cedar privacy fence with black post caps" loading="lazy"><figcaption><span>Fencing · 2026</span><b>Stained Cedar Privacy Fence</b></figcaption></figure>
-      <figure class="proj reveal"><img src="images/fence-2.jpg" alt="Long dark-stained wooden boundary fence" loading="lazy"><figcaption><span>Fencing · 2026</span><b>Dark-Stained Boundary Fence</b></figcaption></figure>
-      <figure class="proj reveal"><img src="images/fence-3.jpg" alt="Custom wooden double gates with diagonal bracing" loading="lazy"><figcaption><span>Fencing · 2026</span><b>Custom Double Gates</b></figcaption></figure>
-      <figure class="proj reveal"><img src="images/fence-4.jpg" alt="Full-length cedar fence run" loading="lazy"><figcaption><span>Fencing · 2026</span><b>Full Lot Perimeter Fence</b></figcaption></figure>
+      <figure class="proj reveal fcarousel" id="fencingShowcase">
+        <div class="fslides">
+          <img src="images/fence-1.jpg" alt="Stained cedar privacy fence with black post caps" class="fslide is-active" loading="lazy">
+          <img src="images/fence-2.jpg" alt="Long dark-stained wooden boundary fence" class="fslide" loading="lazy">
+          <img src="images/fence-3.jpg" alt="Custom wooden double gates with diagonal bracing" class="fslide" loading="lazy">
+          <img src="images/fence-4.jpg" alt="Full-length cedar fence run" class="fslide" loading="lazy">
+        </div>
+        <button type="button" class="fnav fprev" aria-label="Previous fencing photo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button type="button" class="fnav fnext" aria-label="Next fencing photo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+        <div class="fdots" role="tablist" aria-label="Fencing photos">
+          <button type="button" class="fdot is-active" aria-label="Photo 1"></button><button type="button" class="fdot" aria-label="Photo 2"></button><button type="button" class="fdot" aria-label="Photo 3"></button><button type="button" class="fdot" aria-label="Photo 4"></button>
+        </div>
+        <figcaption><span>Fencing · 2026</span><b>Custom Fencing &amp; Gates</b></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -311,10 +360,10 @@ footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
     <div class="label reveal">Process</div>
     <h2 class="title reveal">From first call to <em>final walkthrough.</em></h2>
     <div class="steps">
-      <div class="step reveal"><div class="gn">i.</div><h3>Site Visit</h3><p>We walk the property, take measurements and photos, and talk through what you actually want. Free, about an hour.</p></div>
-      <div class="step reveal"><div class="gn">ii.</div><h3>Itemized Proposal</h3><p>Within a week: a line-by-line quote — labour, materials, allowances, timeline. No lump-sum mysteries.</p></div>
-      <div class="step reveal"><div class="gn">iii.</div><h3>Construction</h3><p>Permits pulled, site protected, schedule posted. One point of contact, photo updates without having to ask.</p></div>
-      <div class="step reveal"><div class="gn">iv.</div><h3>Walkthrough</h3><p>We punch-list every room together before final payment — then a 2-year workmanship warranty in writing.</p></div>
+      <div class="step reveal"><div class="gn">I.</div><h3>Site Visit</h3><p>We walk the property, take measurements and photos, and talk through what you actually want. Free, about an hour.</p></div>
+      <div class="step reveal"><div class="gn">II.</div><h3>Itemized Proposal</h3><p>Within a week: a line-by-line quote — labour, materials, allowances, timeline. No lump-sum mysteries.</p></div>
+      <div class="step reveal"><div class="gn">III.</div><h3>Construction</h3><p>Permits pulled, site protected, schedule posted. One point of contact, photo updates without having to ask.</p></div>
+      <div class="step reveal"><div class="gn">IV.</div><h3>Walkthrough</h3><p>We punch-list every room together before final payment — then a 2-year workmanship warranty in writing.</p></div>
     </div>
   </div>
 </section>
@@ -423,6 +472,55 @@ footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
   qt.style.transition='opacity .22s';qw.style.transition='opacity .22s';
   dots.forEach(function(d,i){d.addEventListener('click',function(){showQ(i)})});
   setInterval(function(){showQ((qi+1)%quotes.length)},7000);
+
+  /* FabMenu — expanding hero buttons */
+  (function(){
+    var wraps=document.querySelectorAll('.fabwrap');
+    function closeAll(except){
+      wraps.forEach(function(w){
+        if(w===except)return;
+        w.classList.remove('open');
+        w.querySelector('.fabmain').setAttribute('aria-expanded','false');
+      });
+    }
+    wraps.forEach(function(w){
+      var btn=w.querySelector('.fabmain');
+      btn.addEventListener('click',function(e){
+        e.stopPropagation();
+        var was=w.classList.contains('open');
+        closeAll(w);
+        w.classList.toggle('open',!was);
+        btn.setAttribute('aria-expanded',String(!was));
+      });
+      w.querySelector('.fabmenu').addEventListener('click',function(e){e.stopPropagation();});
+    });
+    document.addEventListener('click',function(){closeAll(null);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  })();
+  /* Fencing carousel */
+  (function(){
+    var fc=document.getElementById('fencingShowcase');
+    if(!fc)return;
+    var slides=fc.querySelectorAll('.fslide'),dots=fc.querySelectorAll('.fdot'),cur=0,timer=null;
+    function go(n){
+      cur=(n+slides.length)%slides.length;
+      slides.forEach(function(s,i){s.classList.toggle('is-active',i===cur);});
+      dots.forEach(function(d,i){d.classList.toggle('is-active',i===cur);});
+    }
+    function auto(){if(timer)clearInterval(timer);timer=setInterval(function(){go(cur+1);},6500);}
+    fc.querySelector('.fprev').addEventListener('click',function(e){e.stopPropagation();go(cur-1);auto();});
+    fc.querySelector('.fnext').addEventListener('click',function(e){e.stopPropagation();go(cur+1);auto();});
+    dots.forEach(function(d,i){d.addEventListener('click',function(e){e.stopPropagation();go(i);auto();});});
+    var touchX=null;
+    fc.addEventListener('touchstart',function(e){touchX=e.touches[0].clientX;},{passive:true});
+    fc.addEventListener('touchend',function(e){
+      if(touchX===null)return;
+      var dx=e.changedTouches[0].clientX-touchX;
+      if(Math.abs(dx)>40){go(cur+(dx<0?1:-1));auto();}
+      touchX=null;
+    },{passive:true});
+    auto();
+  })();
 })();
 </script>
 </body>
