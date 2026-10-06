@@ -194,15 +194,6 @@ footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
 .foot-grid .reach a{display:flex;align-items:center;gap:.7rem}
 .foot-grid .reach svg{width:15px;height:15px;flex:none;color:var(--gold)}
 .foot-grid .reach a:hover svg{color:var(--gold-hi)}
-@media(max-width:620px){
-  .cta-cards{grid-template-columns:1fr}
-  .proj-grid{grid-template-columns:1fr}
-}
-.foot-base{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:3rem;padding-top:1.6rem;
-  border-top:1px solid var(--hair-d);font-size:.66rem;letter-spacing:.14em;color:var(--dim-d);text-transform:uppercase}
-/* reveal */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:none}
 @media(max-width:960px){
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:2.5rem}
   .about-grid{grid-template-columns:1fr;gap:3rem}
@@ -221,6 +212,17 @@ footer{background:#0d0b07;padding:5rem 0 2.5rem;overflow:hidden}
   .svc .arr{display:none}
   .steps{grid-template-columns:1fr}
 }
+@media(max-width:620px){
+  .cta-cards{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+}
+.foot-base{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:3rem;padding-top:1.6rem;
+  border-top:1px solid var(--hair-d);font-size:.66rem;letter-spacing:.14em;color:var(--dim-d);text-transform:uppercase}
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+
 </style>
 </head>
 <body>
